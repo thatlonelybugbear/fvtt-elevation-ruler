@@ -249,7 +249,8 @@ export class BorderEdge {
    */
   _nextEdge(vertexKey, dir = "ccw") {
     const tri = this.findTriangleFromVertexKey(vertexKey, dir);
-    return Object.values(tri.edges).find(e => e !== this && e.endpointKeys.has(vertexKey));
+    //return Object.values(tri.edges).find(e => e !== this && e.endpointKeys.has(vertexKey));
+    return tri?.edges ? Object.values(tri.edges).find(e => e !== this && e.endpointKeys.has(vertexKey)) : false;
   }
 
   /**
